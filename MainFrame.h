@@ -8,3 +8,8 @@ public:
 private:
     void OnButtonClick(wxCommandEvent& evt);
 };
+
+/*
+    To compile
+    g++ App.cpp  MainFrame.cpp `wx-config --cxxflags` `wx-config --libs` -o ScriptLauncher
+*/

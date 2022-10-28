@@ -1,5 +1,9 @@
 #include "MainFrame.h"
+#include "AwsFunctions.h"
+#include <aws/core/Aws.h>
 #include <iostream>
+#include <string>
+#include <string_view>
 
 MainFrame::MainFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
 {
@@ -14,5 +18,9 @@ MainFrame::MainFrame(const wxString& title) : wxFrame(nullptr, wxID_ANY, title)
 void MainFrame::OnButtonClick(wxCommandEvent& evt)
 {
     // sort the button press
-    wxLogStatus("Button clicked!");
+    //wxLogStatus("Button clicked!");
+    AwsFunctions awsFunction;
+    Aws::String result = awsFunction.ListEc2Instances();
+    //std::string_view resultCopy{result};
+    wxLogStatus("%s", result);
 }
